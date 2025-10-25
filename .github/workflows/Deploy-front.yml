@@ -7,7 +7,7 @@ on :
 env:
   BUILD_NUMBER: ${{github.run_number}}
   IMAGE_NAME: ${{vars.DOCKERHUB_USERNAME}}/front-session14
-  PROJECT_PATH: /home/user/devops-script/frontend/dev  #Docker compose path
+  PROJECT_PATH: /home/user/devops-script/front/dev  #Docker compose path
   DOCKER_SERVICE: front-app
 
 jobs:
