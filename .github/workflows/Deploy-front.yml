@@ -9,6 +9,7 @@ env:
   IMAGE_NAME: ${{vars.DOCKERHUB_USERNAME}}/front-session14
   PROJECT_PATH: /home/user/devops-script/front/dev  #Docker compose path
   DOCKER_SERVICE: front-app
+  BUILD_ARGS: --build-arg VITE_API_URL=https://api.40.lebondeveloppeur.net
 
 jobs:
   # Unit Test
@@ -34,7 +35,7 @@ jobs:
         uses: actions/checkout@v5
     
       - name: Build Docker Image
-        run: docker build -t ${{env.IMAGE_NAME}} .
+        run: docker build -t ${{env.IMAGE_NAME}} ${{env.BUILD_ARGS}} .
 
       - name: Tag Docker Image with version
         run: docker tag ${{env.IMAGE_NAME}} ${{env.IMAGE_NAME}}:v${{env.BUILD_NUMBER}}
